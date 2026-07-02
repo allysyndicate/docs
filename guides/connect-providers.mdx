@@ -1,6 +1,6 @@
 ---
 title: "Connect providers"
-description: "Connect Claude, OpenAI (Codex), and Google Gemini, including CLI install and sign-in flows."
+description: "Connect Claude, OpenAI (Codex), Google Gemini, and GitHub Copilot, including CLI install and sign-in flows."
 ---
 
 Agents run on provider CLIs using your own accounts. After signing in to Syndicate you land on **"Connect a provider to get started"**. Connect at least one; you can add the rest any time in **Settings, Providers**.
@@ -50,6 +50,12 @@ Codex requires a ChatGPT plan that includes Codex access. If yours does not, you
 "Authenticate Gemini to enable Google models."
 
 Click **Connect** and complete the Google sign-in in the terminal flow (including any two-factor prompts). Syndicate watches for the credentials and refreshes the card automatically: "Detected new Gemini credentials — refreshing provider state."
+
+## GitHub Copilot
+
+"Sign in with a paid or free Copilot plan to run Claude/GPT models."
+
+Click **Connect** and complete the GitHub sign-in in the terminal flow (`copilot login`). Any active Copilot plan works, including the free tier. Once connected, Copilot's models appear in selectors with a "(via Copilot)" suffix, so you can tell them apart from the direct Claude and OpenAI providers.
 
 ## The in-app sign-in terminal
 

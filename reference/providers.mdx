@@ -18,11 +18,12 @@ The Settings card reflects this: "not installed" shows **Install CLI**; "install
 
 Each provider's CLI manages its own credentials, the same files you would have using the CLI directly:
 
-| Provider | Credentials file |
+| Provider | Credentials |
 |---|---|
 | Claude | `~/.claude/.credentials.json` |
 | OpenAI (Codex) | `~/.codex/auth.json` |
 | Google Gemini | `~/.gemini/oauth_creds.json` |
+| GitHub Copilot | Managed by the Copilot CLI's GitHub sign-in |
 
 Syndicate watches these files during sign-in, which is why terminal-based logins complete automatically ("Detected new [Provider] credentials — refreshing provider state."). Deleting a file signs that provider out; the next check reverts the card to "Not authenticated".
 
@@ -42,6 +43,11 @@ Syndicate watches these files during sign-in, which is why terminal-based logins
 
 - Sign-in runs through a terminal flow, including Google two-factor prompts.
 - Revoking the CLI's access in your Google account settings signs it out; reconnect from Settings.
+
+### GitHub Copilot
+
+- Sign-in runs through a terminal flow (`copilot login`) with your GitHub account.
+- Requires an active Copilot plan; the free tier works. Its models run on Copilot's hosted Claude/GPT backends and are labeled "(via Copilot)" in selectors.
 
 ## Terminal flows by platform
 

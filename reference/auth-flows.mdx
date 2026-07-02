@@ -23,10 +23,10 @@ On startup Syndicate checks a launch policy for your account and version. It can
 3. Pasting the code into Syndicate exchanges it for tokens, which are written to the Claude CLI's own credentials file (`~/.claude/.credentials.json`).
 4. On rate-limit errors (HTTP 429) the app automatically falls back to a terminal `claude` login and watches the credentials file for completion.
 
-### OpenAI and Gemini (terminal flows)
+### OpenAI, Gemini, and Copilot (terminal flows)
 
 1. **Connect** launches the provider CLI's interactive login (in-app terminal on Windows/Linux, Terminal.app on macOS).
-2. You complete the provider's own sign-in (ChatGPT account for Codex, Google account for Gemini).
+2. You complete the provider's own sign-in (ChatGPT account for Codex, Google account for Gemini, GitHub account for Copilot).
 3. A file watcher polls the credentials location for up to 5 minutes; on success the provider card refreshes automatically.
 
 ### Failure modes

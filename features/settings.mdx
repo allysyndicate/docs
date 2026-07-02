@@ -3,7 +3,7 @@ title: "Settings"
 description: "Every setting in Syndicate: the Settings modal, plus team and agent level controls."
 ---
 
-Open Settings from the sidebar account footer, the command palette, or a team's gear menu. This page covers the four Settings tabs, then maps the settings that live at team and agent level.
+Open Settings from the sidebar account footer, the command palette, or a team's gear menu. This page covers the five Settings tabs (**Account**, **General**, **Providers**, **Usage**, **MCP**), then maps the settings that live at team and agent level.
 
 ## Account
 
@@ -17,12 +17,19 @@ Open Settings from the sidebar account footer, the command palette, or a team's 
 |---|---|---|
 | Theme | Dark | **Light** or **Dark**, applied immediately and persisted |
 | Confine agents to their working folder | Off | OS-level sandbox so agents "can't read or write files outside their team's working folder" (macOS/Linux; not applicable on Windows). Network access is unaffected. See [Permissions and safety](/reference/permissions-and-safety#workspace-confinement-global) |
-| syndicate version | automatic checks | **Check for updates**, and **Restart now** when an update has downloaded. See [Data, storage, and updates](/reference/data-and-storage#updates) |
+| Syndicate version | automatic checks | **Check for updates**, and **Restart now** when an update has downloaded. See [Data, storage, and updates](/reference/data-and-storage#updates) |
 
 ## Providers
 
 - **Default Model For New Agents**: provider and model dropdowns. "Used for new teams and solo agents. Existing agents keep their current model."
-- **Provider Health**: a card per provider (Claude, OpenAI, Google Gemini) with its **Connected** / **Not connected** badge, CLI version, model list, and context-dependent actions: **Install CLI**, **Connect**, **Reconnect**, **Disconnect**, **Refresh**. Claude sign-in may show a code-paste form here. Full flows: [Connect providers](/guides/connect-providers).
+- **Provider Health**: a card per provider (Claude, OpenAI, Google Gemini, GitHub Copilot) with its **Connected** / **Not connected** badge, CLI version, model list, and context-dependent actions: **Install CLI**, **Connect**, **Reconnect**, **Disconnect**, **Refresh**. Claude sign-in may show a code-paste form here. Full flows: [Connect providers](/guides/connect-providers).
+
+## Usage
+
+On-demand usage stats for your connected providers, read from the provider CLIs' logs on this machine. Nothing polls in the background; click **Refresh** to re-scan (it shows "Scanning..." while it works).
+
+- **Claude**: account-wide limit bars with reset times: **Current session**, **Weekly · all models**, **Weekly · Opus**, **Weekly · Sonnet**, and **Extra usage credits** (monthly) if your plan has them. Below the bars: exact token counts ("Exact token counts from Claude Code logs on this machine. Usage from claude.ai or other devices is not included."). If the bars are missing: "Account limits need a fresh sign-in token. Run any Claude agent once, then click Refresh."
+- **OpenAI (Codex)**: **Current session** and weekly rate-limit bars, plus **Tokens, last 5 hours (this machine)** and **Tokens, past 7 days (this machine)**. If empty: "No rate-limit snapshots yet. Run any Codex agent once, then refresh."
 
 ## MCP
 

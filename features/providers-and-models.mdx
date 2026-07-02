@@ -3,7 +3,7 @@ title: "Providers and models"
 description: "Supported providers, available models, model selection, and auth behavior."
 ---
 
-Syndicate does not ship its own models. Agents run on the provider accounts you connect: Claude, OpenAI (Codex), and Google Gemini. Connect one provider or all three; agents in the same team can use different providers.
+Syndicate does not ship its own models. Agents run on the provider accounts you connect: Claude, OpenAI (Codex), Google Gemini, and GitHub Copilot. Connect one provider or all of them; agents in the same team can use different providers.
 
 <Frame caption="Provider cards show connection status, available models, and account actions">
   <img src="/assets/screenshots/providers/providers-connected.png" alt="The Providers settings screen showing connected provider cards and available models" />
@@ -16,6 +16,7 @@ Syndicate does not ship its own models. Agents run on the provider accounts you 
 | **Claude** | Your Claude account | Browser sign-in, paste a code back into the app |
 | **OpenAI (Codex)** | Your ChatGPT account with Codex access | CLI sign-in |
 | **Google Gemini** | Your Google account | CLI sign-in |
+| **GitHub Copilot** | Your GitHub account with a Copilot plan (free tier works) | CLI sign-in |
 
 Each provider works through its CLI. If the CLI is missing, Syndicate offers **Install CLI** and installs it with its bundled runtime.
 
@@ -27,9 +28,10 @@ Models appear only for providers that are connected. Current lineup:
 
 | Provider | Models |
 |---|---|
-| Claude | Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6, Haiku 4.5 |
-| OpenAI (Codex) | GPT-5.5, GPT-5.4, GPT-5.3 Codex |
-| Google Gemini | Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 3 Flash Preview |
+| Claude | Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 5, Sonnet 4.6, Haiku 4.5 |
+| OpenAI (Codex) | GPT-5.5, GPT-5.4, GPT-5.4 Mini |
+| Google Gemini | Gemini 3.5 Flash, Gemini 3.1 Flash Lite, Gemini 3.1 Pro (preview), Gemini 2.5 Pro, Gemini 2.5 Flash |
+| GitHub Copilot | Auto (via Copilot), Claude Sonnet 4.5 (via Copilot), Claude Sonnet 4 (via Copilot), Claude Haiku 4.5 (via Copilot), GPT-5 (via Copilot) |
 
 Model lists update as providers ship new versions. The in-app selector reflects what your connected CLIs support.
 
@@ -64,13 +66,14 @@ The Settings card reflects this: **Install CLI**, **Connect**, or **Connected** 
 
 Each provider's CLI manages its own credentials:
 
-| Provider | Credentials file |
+| Provider | Credentials |
 |---|---|
 | Claude | `~/.claude/.credentials.json` |
 | OpenAI (Codex) | `~/.codex/auth.json` |
 | Google Gemini | `~/.gemini/oauth_creds.json` |
+| GitHub Copilot | Managed by the Copilot CLI's GitHub sign-in |
 
-Syndicate watches these files during sign-in, which is why terminal-based logins complete automatically. Deleting a credential file signs that provider out.
+Syndicate watches these locations during sign-in, which is why terminal-based logins complete automatically. Deleting a credential file signs that provider out.
 
 ## Provider Behavior
 
@@ -90,6 +93,12 @@ Syndicate watches these files during sign-in, which is why terminal-based logins
 
 - Sign-in runs through a terminal flow, including two-factor prompts.
 - Revoking CLI access in your Google account signs it out.
+
+### GitHub Copilot
+
+- Sign-in runs through a terminal flow (`copilot login`) with your GitHub account.
+- Requires an active Copilot plan; the free tier works. The **Auto (via Copilot)** model lets Copilot pick a model for you, which is the most free-tier-friendly choice.
+- Copilot's models are hosted Claude and GPT backends, labeled "(via Copilot)" in selectors so they are not confused with the direct Claude and OpenAI providers.
 
 ## Expiry During Work
 

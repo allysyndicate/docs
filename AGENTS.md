@@ -13,7 +13,7 @@
 
 - Use "Syndicate" for the app name.
 - Use "workspace" for the broad container and "team" or "solo agent" for specific workspace types.
-- Use "provider" for Claude, OpenAI/Codex, and Gemini.
+- Use "provider" for Claude, OpenAI/Codex, Gemini, and GitHub Copilot.
 - Use "MCP server" when referring to external tool integrations.
 
 ## Style preferences
